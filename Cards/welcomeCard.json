@@ -189,7 +189,7 @@
         "actions": [
           {
             "type": "Action.Submit",
-            "title": "enter phone number"
+            "title": "Enter phone number"
           }
         ]
       }
