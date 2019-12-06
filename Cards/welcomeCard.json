@@ -1,0 +1,198 @@
+﻿{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "body": [
+    {
+      "type": "Image",
+      "url": "https://uwrfpizzabot.s3.amazonaws.com/pizza.jpg",
+      "size": "stretch"
+    },
+    {
+      "type": "TextBlock",
+      "spacing": "medium",
+      "size": "default",
+      "weight": "bolder",
+      "text": "Welcome to Pizza bot!",
+      "wrap": true,
+      "maxLines": 0
+    },
+    {
+      "type": "TextBlock",
+      "size": "default",
+      "isSubtle": "true",
+      "text": "Order from our great selection of pizza, or track your order to see where its at!",
+      "wrap": true,
+      "maxLines": 0
+    }
+  ],
+  "actions": [ //actions for the welcome card
+    {
+      "type": "Action.ShowCard",
+      "title": "New order",
+      "card": { //start of the card shown upon clicking new order
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "What do you want to do?"
+          }
+        ],
+        "actions": [ //actions for new order
+          {
+            "type": "Action.ShowCard",
+            "title": "Delivery",
+            "card": { //start of the card shown upon clicking delivery
+              "type": "AdaptiveCard",
+              "body": [
+                {
+                  "type": "TextBlock",
+                  "text": "do you want to sign in or continue as a guest?"
+                }
+              ],
+              "actions": [ //actions for delivery
+                {
+                  "type": "Action.Submit",
+                  "title": "sign in"
+                },
+                {
+                  "type": "Action.ShowCard",
+                  "title": "continue as guest",
+                  "card": { //start of the card shown upon clicking continue as guest
+                    "type": "AdaptiveCard",
+                    "body": [
+                      {
+                        "type": "TextBlock",
+                        "text": "great, we need your phone number to continue"
+                      }
+                    ],
+                    "actions": [ //actions for entering phone number
+                      {
+                        "type": "Action.submit",
+                        "text": "enter phone number below"
+                      }
+
+                    ]
+                  }
+                }
+              ]
+            }
+
+          },
+          {
+            "type": "Action.ShowCard",
+            "title": "Carry out",
+            "card": { //start of the card shown upon clicking Carry out
+              "type": "AdaptiveCard",
+              "body": [
+                {
+                  "type": "TextBlock",
+                  "text": "do you want to sign in or continue as a guest?"
+                }
+              ],
+              "actions": [ //actions for delivery
+                {
+                  "type": "Action.Submit",
+                  "title": "sign in"
+                },
+                {
+                  "type": "Action.ShowCard",
+                  "title": "continue as guest",
+                  "card": { //start of the card shown upon clicking continue as guest
+                    "type": "AdaptiveCard",
+                    "body": [
+                      {
+                        "type": "TextBlock",
+                        "text": "great, we need your phone number to continue"
+                      }
+                    ],
+                    "actions": [ //actions for entering phone number
+                      {
+                        "type": "Action.submit",
+                        "text": "enter phone number below"
+                      }
+
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Action.ShowCard",
+      "title": "Reorder",
+      "card": { //start of when you click on reorder
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "Do you want to do your easy ordeer or most recent order?"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.ShowCard",
+            "title": "Easy order",
+            "card": { //start of when you click on easy order
+              "type": "AdaptiveCard",
+              "body": [
+                {
+                  "type": "TextBlock",
+                  "text": "to do this you need to sign in to your pizza profile"
+                }
+              ],
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "sign in to your pizza profile"
+                }
+              ]
+            }
+          },
+          {
+            "type": "Action.ShowCard",
+            "title": "most recent order",
+            "card": { //start of when you click on reorder
+              "type": "AdaptiveCard",
+              "body": [
+                {
+                  "type": "TextBlock",
+                  "text": "to do this you need to sign in to your pizza profile"
+                }
+              ],
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "sign in to your pizza profile"
+                }
+              ]
+            }
+          }
+        ]
+
+      }
+    },
+    {
+      "type": "Action.ShowCard",
+      "title": "Track order",
+      "card": {
+        "type": "AdaptiveCard",
+        "body": [
+          {
+            "type": "TextBlock",
+            "title": "what phone number did you use for your order?"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.Submit",
+            "title": "enter phone number"
+          }
+        ]
+      }
+    }
+  ]
+}
